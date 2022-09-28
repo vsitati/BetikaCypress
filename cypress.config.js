@@ -3,7 +3,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig ({
   e2e: {
     setupNodeEvents(on, config) {
-    baseUrl; 'https://www.betika.com/en-ke/login',
+    baseUrl: 'https://www.betika.com/en-ke/login',
     reporter;'mochawesome',
     reporterOptions; {
       reportDir: 'cypress/results',
@@ -11,6 +11,6 @@ module.exports = defineConfig ({
       html; true,
       json; false
     }
+    }
   }
-}
 })
