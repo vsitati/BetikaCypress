@@ -1,10 +1,10 @@
 describe('Betika Login and Place Bet - Without funds', () => {
   beforeEach(() => {
     cy.visit('https://www.betika.com/en-ke/login')
+    cy.get('.session__form__phone > .input').type("0746987680")
+    cy.get('.session__form__password__container > .input__container > .input').type("2323")
   })
   it('Login & Place bet', () => {
-    cy.get('.session__form__phone > .input').type("0746987962")
-    cy.get('.session__form__password__container > .input__container > .input').type("1234")
     cy.get('.session__form__button__container > .button').click()
     cy.get(':nth-child(7) > .prebet-match__odd-market__container > .prebet-match__odds__container > .prebet-match__odds > :nth-child(1) > .prebet-match__odd__odd-value').click({ force: true })
     cy.get(':nth-child(8) > .prebet-match__odd-market__container > .prebet-match__odds__container > .prebet-match__odds > :nth-child(2) > .prebet-match__odd__odd-value').click({ force: true })
@@ -16,8 +16,6 @@ describe('Betika Login and Place Bet - Without funds', () => {
 })
 describe('Deposit funds', () => {
   it('Deposit', () => {
-    cy.get('.session__form__phone > .input').type("0746987962")
-    cy.get('.session__form__password__container > .input__container > .input').type("1234")
     cy.get('.session__form__button__container > .button').click()
     cy.contains('Deposit').click({ multiple: true, force: true })
     cy.contains('+500').click()
